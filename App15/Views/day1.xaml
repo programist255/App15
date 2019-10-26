@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App15.Views.day1"
+             BackgroundColor="#0A3641"
+             Shell.NavBarIsVisible="false">
+    <StackLayout Margin="10">
+        <ScrollView MinimumHeightRequest="50">
+        <Grid HeightRequest="50">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label TextColor="White" Grid.Row="0" Grid.Column="0" 
+                   Grid.RowSpan="2" x:Name="MainDate" Text="11" 
+                   FontSize="40" />
+            <Label TextColor="White" Grid.Row="0" Grid.Column="1" 
+                   x:Name="MainDate1" Text="Понеділок"/>
+            <Label TextColor="White" Grid.Row="1" Grid.Column="1"  
+                   x:Name="MainDate2" Text="Вересень 2019"/>
+            </Grid>
+            </ScrollView>
+        <ScrollView>
+            <StackLayout Padding="1" BackgroundColor="White">
+            </StackLayout>
+        </ScrollView>
+        <ScrollView>
+            <StackLayout Margin="10,2">
+                <Label TextColor="White" Text="Планування"/>
+            </StackLayout>
+        </ScrollView>
+        <ScrollView MinimumHeightRequest="50">
+            <StackLayout>
+                <ListView RowHeight="40"
+            x:Name="MyListView1"
+            ItemsSource="{Binding Items}"
+             IsGroupingEnabled="False"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+                    <d:ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item 1</x:String>
+                            <x:String>Item 2</x:String>
+                            <x:String>Item 3</x:String>
+                            <x:String>Item 4</x:String>
+                            <x:String>Item 5</x:String>
+                        </x:Array>
+                    </d:ListView.ItemsSource>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell TextColor="White" Text="{Binding .}" d:Text="{Binding .}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <ScrollView>
+            <StackLayout Padding="1" BackgroundColor="White">
+            </StackLayout>
+        </ScrollView>
+        <ScrollView>
+            <StackLayout Margin="10,0,10,10">
+                <Label TextColor="White" Text="Повторні"/>
+            </StackLayout>
+            </ScrollView>
+        <ScrollView MinimumHeightRequest="50">
+            <ListView RowHeight="40"
+           x:Name="MyListView2"
+            ItemsSource="{Binding Items}"
+            IsGroupingEnabled="False"
+           
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item 1</x:String>
+                        <x:String>Item 2</x:String>
+                        <x:String>Item 3</x:String>
+                        <x:String>Item 4</x:String>
+                        <x:String>Item 5</x:String>
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell TextColor="White" Text="{Binding .}" d:Text="{Binding .}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <ScrollView>
+            <StackLayout Padding="1" BackgroundColor="White">
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Margin="10,0, 10, 10">
+            <Label TextColor="White" Text="Оплачені"/>
+        </StackLayout>
+        <ScrollView MinimumHeightRequest="50">
+            <ListView RowHeight="40"
+            x:Name="MyListView3"
+            ItemsSource="{Binding Items}"
+            IsGroupingEnabled="False"
+           
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item 1</x:String>
+                    <x:String>Item 2</x:String>
+                    <x:String>Item 3</x:String>
+                    <x:String>Item 4</x:String>
+                    <x:String>Item 5</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="White" Text="{Binding .}" d:Text="{Binding .}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </ScrollView>
+    </StackLayout>
+    
+    
+</ContentPage>
