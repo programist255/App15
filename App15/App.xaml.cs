@@ -8,7 +8,7 @@ namespace App15
 {
     public partial class App : Application
     {
-
+ 
         public App()
         {
             InitializeComponent();
@@ -16,7 +16,7 @@ namespace App15
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
-
+       
         protected override void OnStart()
         {
             // Handle when your app starts

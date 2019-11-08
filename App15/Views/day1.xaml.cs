@@ -14,51 +14,61 @@ namespace App15.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class day1 : ContentPage
     {
-        public ObservableCollection<string> Items { get; set; }
+        ItemsViewModel viewModel;
+        public App[] product { get; set; }
+        
         public day1()
         {
             InitializeComponent();
-            
+
+            BindingContext = viewModel = new ItemsViewModel();
+
             Device.StartTimer(TimeSpan.FromSeconds(1), OnTimerTick);
 
+            //Print(product);
 
-            Items = new ObservableCollection<string>
-            {
-
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
-            };
-
-            MyListView1.ItemsSource = Items;
-            MyListView2.ItemsSource = Items;
-            MyListView3.ItemsSource = Items;
-
-
+            //Scr2.IsVisible = false;
+            //Scr3.IsVisible = false;
+            //Scr4.IsVisible = false;
+            //Scr5.IsVisible = false;
+            
         }
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+
+        protected override void OnAppearing()
         {
-            if (e.Item == null)
-                return;
+            base.OnAppearing();
+            
+            if (viewModel.Items.Count == 0)
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+                viewModel.LoadItemsCommand.Execute(null);
+        }
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as Item;
+            if (item == null)
+            return;
 
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            await Navigation.PushAsync(new ADD());
+            Scr2.IsVisible = true;
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
         }
         bool OnTimerTick()
         {
 
             DateTime dt = DateTime.Now;
-
+            
             MainDate.Text = dt.ToString("d");
             MainDate1.Text = dt.ToString("dddd");
             MainDate2.Text = dt.ToString("MMMM yyyy");
             return true;
         }
 
-       
+        private void MainDate3_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ADD());
+        }
+        
+        
     }
 }

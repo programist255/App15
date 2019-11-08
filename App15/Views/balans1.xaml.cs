@@ -15,6 +15,7 @@ namespace App15.Views
         public balans1()
         {
             InitializeComponent();
+
         }
     }
 }

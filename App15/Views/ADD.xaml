@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             mc:Ignorable="d"
+             x:Class="App15.Views.ADD"
+             BackgroundColor="#0A3641"
+             Title="Новий запис">
+
+    <StackLayout>
+        
+        <StackLayout  Margin="15,20,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions  >
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition />
+                    
+                </Grid.ColumnDefinitions>
+                <Label Padding="0" FontSize="Large" Grid.Row="1" Grid.Column="0" 
+                       TextColor="White"
+                       Text="Назва"/>
+                <Entry x:Name="Nasv" Text="{Binding Item.Text}" Grid.Row="1" Grid.Column="1" TextColor="White"
+                        />
+
+
+                <Label  FontSize="Large" Grid.Row="2" Grid.Column="0" TextColor="White"
+                       Text="Сума"/>
+                <Entry x:Name="Syma" Grid.Row="2" Text="{Binding Item.Description}" Grid.Column="1" TextColor="White"
+                        />
+                
+            </Grid>
+            <input:CheckBox Margin="0,0,30,0" 
+                                IsChecked="True" Type="Check"
+                                Text="Зберегти" TextFontSize="19"
+                                TextColor="White" BorderColor="White" 
+                                BackgroundColor="#0A3641"
+                                BoxBackgroundColor="#0A3641"
+                                />
+        </StackLayout>
+        <StackLayout Margin="0,17"
+                     
+                     HorizontalOptions="Center" Orientation="Horizontal" 
+                     VerticalOptions="Center" >
+            <Button Clicked="Save_Clicked" TextColor="White" FontSize="Large" Text="Додати" BackgroundColor="#0A3641"/>
+                </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
